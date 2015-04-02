@@ -1,14 +1,18 @@
 'use strict';
 
 angular.module('lolApi', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
-      });
+    .config(function ($stateProvider, $urlRouterProvider) {
+        $stateProvider.state('home', {
+            url: '/',
+            templateUrl: 'app/main/main.html',
+            controller: 'MainCtrl'
+        });
 
-    $urlRouterProvider.otherwise('/');
-  })
-;
+        $stateProvider.state('sandbox', {
+            url: '/sandbox',
+            templateUrl: 'app/sandbox/sandbox.html',
+            controller: 'SandboxController'
+        });
+
+        $urlRouterProvider.otherwise('/');
+    });
