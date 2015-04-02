@@ -1,16 +1,14 @@
 /*globals angular */
-angular.module('lolApi').service('urfService', function ($q, urfResource) {
+angular.module('lolApi').service('riotMatchService', function ($q, matchResource) {
     'use strict';
-    var self = this;
 
-    this.getUrfData = function (date) {
+    this.getMatchData = function (matchId) {
         var deferred = $q.defer();
-        urfResource.get({
-            beginDate: date
+        matchResource.get({
+            matchId: matchId
         }, function (data) {
             deferred.resolve(data);
         });
         return deferred.promise;
     };
-
 });
