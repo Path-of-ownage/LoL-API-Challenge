@@ -4,7 +4,15 @@ angular.module('lolApi').service('playerService', function ($timeout, soundFxInt
 
     function addToQueue(event) {
         $timeout(function () {
-            soundFxIntrumentService.sound.play();
+            /*if (soundFxIntrumentService.kick.remaining > 0) {
+                console.log(soundFxIntrumentService.kick.remaining);
+                soundFxIntrumentService.kick.progress = 0;
+                soundFxIntrumentService.kick.play();
+            } else {
+                soundFxIntrumentService.kick.play();
+            }
+            //soundFxIntrumentService.kick.stop();*/
+            soundFxIntrumentService.kick.play();
             console.log('playing ' + event.eventType + ' at: ' + event.timestamp);
         }, event.timestamp);
     }
@@ -14,5 +22,6 @@ angular.module('lolApi').service('playerService', function ($timeout, soundFxInt
         for (i = 0; i < events.length; i += 1) {
             addToQueue(events[i]);
         }
+        //soundFxIntrumentService.kick.play();
     };
 });
