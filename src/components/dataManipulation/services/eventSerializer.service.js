@@ -12,4 +12,15 @@ angular.module('lolApi').service('eventSerializerService', function () {
 
         return output;
     };
+
+    this.getPlayerData = function (matchJson) {
+        var output = [],
+            frames = matchJson.timeline.frames;
+        
+        for (var i = 0; i < frames.length; i += 1) {
+            output.push(frames[i].participantFrames);
+        }
+
+        return output;
+    }
 });
