@@ -28,6 +28,7 @@ angular.module('lolApi').service('matchService', function ($q, $timeout, riotMat
         var timelineData = [],
             matchIndex,
             deferred = $q.defer();
+        
         this.getMatchData(epoch).then(function (data) {
             for (matchIndex = 0; matchIndex < data.length; matchIndex += 1) {
                 timelineData.push(data[matchIndex]);

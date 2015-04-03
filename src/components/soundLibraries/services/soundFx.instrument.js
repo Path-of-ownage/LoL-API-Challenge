@@ -2,5 +2,5 @@
 angular.module('lolApi').service('soundFxIntrumentService', function (ngAudio) {
     'use strict';
 
-    this.sound = ngAudio.load("assets/sounds/cello.wav");
+    this.kick = ngAudio.load("assets/sounds/cajon.wav");
 });

@@ -3,6 +3,6 @@ angular.module('lolApi').service('soundPlayerService', function (soundFxIntrumen
     'use strict';
 
     this.playSound = function () {
-        soundFxIntrumentService.sound.play();
+        soundFxIntrumentService.kick.play();
     }
 });
