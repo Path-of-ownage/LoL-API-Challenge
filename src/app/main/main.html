@@ -1,33 +1,34 @@
 <div class="container">
 
-  <div ng-include="'components/navbar/navbar.html'"></div>
-
   <div class="jumbotron text-center">
-    <h1>'Allo, 'Allo!</h1>
+
+
     <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
+      <img src="assets/images/URF_800x315.jpg" alt="I'm Yeoman"><br>
+
+    <h1>♪ URF Soundscape ♪</h1>
+    Borne from the results of your frustration, bringing you back to relaxation...
     </p>
-    <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+
+    <!--<p><a class="btn btn-lg btn-success" ng-href="#">Song! Urf Urf!</a></p>-->
   </div>
 
-  <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
-        <div class="caption">
-          <h3>{{awesomeThing.title}}</h3>
-          <p>{{awesomeThing.description}}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
-        </div>
-      </div>
+  <div class="well text-center">
+    <h2>Control Panel</h2>
+  </div>
+
+
+  <div class="well text-center">
+    <div class="page-header">
+      <h2>About
+        <small>huehuehue</small>
+      </h2>
     </div>
+    The URF soundscape uses data from the Ultra-Rapid-Fire API to continuously generate an endlessly unique soundscape
+    that will go on forever & ever...
+    This has been created as an entry for the Riot API challenge!
   </div>
 
-  <hr>
 
-  <div class="footer">
-    <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
-  </div>
 
 </div>
