@@ -1,5 +1,5 @@
 /*globals angular */
-angular.module('lolApi').service('playerService', function ($timeout, soundFxIntrumentService) {
+angular.module('lolApi').service('playerService', function ($timeout, birdBgIntrumentService) {
     'use strict';
 
     function addToQueue(event) {
@@ -12,7 +12,8 @@ angular.module('lolApi').service('playerService', function ($timeout, soundFxInt
                 soundFxIntrumentService.kick.play();
             }
             //soundFxIntrumentService.kick.stop();*/
-            soundFxIntrumentService.kick.play();
+            var index = Math.floor(Math.random() * 43) + 1;
+            birdBgIntrumentService.songs[index].play();
             console.log('playing ' + event.eventType + ' at: ' + event.timestamp);
         }, event.timestamp);
     }
@@ -22,6 +23,5 @@ angular.module('lolApi').service('playerService', function ($timeout, soundFxInt
         for (i = 0; i < events.length; i += 1) {
             addToQueue(events[i]);
         }
-        //soundFxIntrumentService.kick.play();
     };
 });
