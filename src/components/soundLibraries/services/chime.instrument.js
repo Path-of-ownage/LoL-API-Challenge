@@ -17,10 +17,17 @@ angular.module('lolApi').service('chimesInstrumentService', function (ngAudio) {
     this.sample.push(ngAudio.load('assets/sounds/chimes/10.wav'));
     this.sample.push(ngAudio.load('assets/sounds/chimes/11.wav'));
     this.sample.push(ngAudio.load('assets/sounds/chimes/12.wav'));
-    
+
     this.getRandomSample = function () {
         var index = Math.floor(Math.random() * 11);
         return self.sample[index];
+    };
+
+    this.playRandomSample = function (cap) {
+        var sample;
+        sample = self.getRandomSample();
+        sample.play();
+
     };
 
 });

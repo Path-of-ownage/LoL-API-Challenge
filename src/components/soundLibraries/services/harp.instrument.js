@@ -17,4 +17,10 @@ angular.module('lolApi').service('harpInstrumentService', function (ngAudio) {
         return self.sample[index];
     };
 
+    this.playRandomSample = function (cap) {
+        var sample;
+        sample = self.getRandomSample();
+        sample.play();
+    };
+
 });
