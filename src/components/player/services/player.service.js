@@ -4,17 +4,19 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
 
     function getInstrument(eventName) {
         switch (eventName) {
-        case 'SKILL_LEVEL_UP':
         case 'ITEM_PURCHASED':
             return chimesInstrumentService;
         case 'ITEM_UNDO':
             return harpInstrumentService;
         case 'WARD_PLACED':
+        case 'WARD_KILL':
         case 'ITEM_DESTROYED':
+        case 'SKILL_LEVEL_UP':
             return birdBgInstrumentService;
         case 'BUILDING_KILL':
         case 'ITEM_SOLD':
         case 'ELITE_MONSTER_KILL':
+        case 'CHAMPION_KILL':
             return birdInstrumentService;
         default:
             return; // birdBgInstrumentService;
@@ -25,7 +27,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         $timeout(function () {
             var instrument = getInstrument(event.eventType);
             if (angular.isDefined(instrument)) {
-                instrument.getRandomSample().play();
+                instrument.playRandomSample();
             }
             console.log('playing ' + event.eventType + ' at: ' + event.timestamp);
         }, event.timestamp / 5);
