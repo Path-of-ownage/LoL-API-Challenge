@@ -1,5 +1,5 @@
 /*globals angular */
-angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService) {
+angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService, eventCounterService) {
     'use strict';
 
     function getInstrument(eventName) {
@@ -41,5 +41,6 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         //soundFxInstrumentService.wind.play();
         soundFxInstrumentService.wind.loop = true;
         soundFxInstrumentService.wind.volume = 0.3;
+        console.log(eventCounterService.getCounts(events));
     };
 });
