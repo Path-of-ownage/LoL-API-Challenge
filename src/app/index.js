@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('lolApi', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap', 'ngAudio'])
+angular.module('lolApi', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap', 'ngAudio', 'pascalprecht.translate'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider.state('home', {
             url: '/',
