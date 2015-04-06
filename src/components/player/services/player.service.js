@@ -1,19 +1,34 @@
 /*globals angular */
-angular.module('lolApi').service('playerService', function ($timeout, birdBgIntrumentService, soundFxIntrumentService) {
+angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService) {
     'use strict';
+
+    function getInstrument(eventName) {
+        switch (eventName) {
+        case 'ITEM_PURCHASED':
+            return chimesInstrumentService;
+        case 'ITEM_UNDO':
+            return harpInstrumentService;
+        case 'WARD_PLACED':
+        case 'WARD_KILL':
+        case 'ITEM_DESTROYED':
+        case 'SKILL_LEVEL_UP':
+            return birdBgInstrumentService;
+        case 'BUILDING_KILL':
+        case 'ITEM_SOLD':
+        case 'ELITE_MONSTER_KILL':
+        case 'CHAMPION_KILL':
+            return birdInstrumentService;
+        default:
+            return; // birdBgInstrumentService;
+        }
+    }
 
     function addToQueue(event) {
         $timeout(function () {
-            /*if (soundFxIntrumentService.kick.remaining > 0) {
-                console.log(soundFxIntrumentService.kick.remaining);
-                soundFxIntrumentService.kick.progress = 0;
-                soundFxIntrumentService.kick.play();
-            } else {
-                soundFxIntrumentService.kick.play();
+            var instrument = getInstrument(event.eventType);
+            if (angular.isDefined(instrument)) {
+                instrument.playRandomSample();
             }
-            //soundFxIntrumentService.kick.stop();*/
-            var index = Math.floor(Math.random() * 43) + 1;
-            birdBgIntrumentService.songs[index].play();
             console.log('playing ' + event.eventType + ' at: ' + event.timestamp);
         }, event.timestamp / 5);
     }
@@ -23,8 +38,8 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgIntr
         for (i = 0; i < events.length; i += 1) {
             addToQueue(events[i]);
         }
-        soundFxIntrumentService.wind.play();
-        soundFxIntrumentService.wind.loop = true;
-        soundFxIntrumentService.wind.volume = 0.3;
+        //soundFxInstrumentService.wind.play();
+        soundFxInstrumentService.wind.loop = true;
+        soundFxInstrumentService.wind.volume = 0.3;
     };
 });
