@@ -1,5 +1,5 @@
 /*globals angular */
-angular.module('lolApi').service('birdInstrumentService', function ($timeout, ngAudio) {
+angular.module('lolApi').service('birdInstrumentService', function ($timeout, instrumentService, ngAudio) {
     'use strict';
     var self = this,
         locked = false;
@@ -55,6 +55,10 @@ angular.module('lolApi').service('birdInstrumentService', function ($timeout, ng
         $timeout(function () {
             self.locked = false;
         }, sample.remaining);
+    };
+
+    this.changeVolume = function (volume) {
+        instrumentService.changeVolume(volume);
     };
 
 });
