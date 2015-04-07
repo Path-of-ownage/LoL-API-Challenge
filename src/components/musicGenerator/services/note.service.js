@@ -4,22 +4,22 @@ angular.module('lolApi').service('noteService', function () {
 
     this.notes = [
         {
-            "pattern": [
+            'pattern': [
                 {
-                    "value": 0.5,
-                    "type": "rest"
+                    'value': 0.5,
+                    'type': 'rest'
           },
                 {
-                    "value": 0.5,
-                    "type": "note"
+                    'value': 0.5,
+                    'type': 'note'
           }
         ]
       },
         {
-            "pattern": [
+            'pattern': [
                 {
-                    "value": 0.25,
-                    "type": "note"
+                    'value': 0.25,
+                    'type': 'note'
           }
         ]
       }
@@ -28,5 +28,5 @@ angular.module('lolApi').service('noteService', function () {
     this.getNoteFromXY = function (x, y) {
         var total = x + y;
         return total % 8;
-    }
+    };
 });

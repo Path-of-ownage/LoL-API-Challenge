@@ -2,14 +2,6 @@
 angular.module('lolApi').service('arrayUtilService', function () {
     'use strict';
 
-    function getLowestArray(array1, array2) {
-        if (array1.length > array2.length) {
-            return array2;
-        } else {
-            return array1;
-        }
-    }
-
     this.caseInsensitiveStringInnerJoin = function (array1, array2) {
         var arrayIndex1, arrayIndex2, joinAmount, currentString, innerJoin = [];
         if (!angular.isDefined(array1) || !angular.isDefined(array2)) {

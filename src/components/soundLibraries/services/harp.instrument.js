@@ -1,5 +1,5 @@
 /*globals angular */
-angular.module('lolApi').service('harpInstrumentService', function (ngAudio) {
+angular.module('lolApi').service('harpInstrumentService', function (ngAudio, instrumentService) {
     'use strict';
     var self = this;
 
@@ -23,4 +23,7 @@ angular.module('lolApi').service('harpInstrumentService', function (ngAudio) {
         sample.play();
     };
 
+    this.changeVolume = function (volume) {
+        instrumentService.changeVolume(volume);
+    };
 });
