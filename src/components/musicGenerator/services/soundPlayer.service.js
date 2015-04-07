@@ -4,5 +4,5 @@ angular.module('lolApi').service('soundPlayerService', function (soundFxIntrumen
 
     this.playSound = function () {
         soundFxIntrumentService.kick.play();
-    }
+    };
 });

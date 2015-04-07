@@ -11,7 +11,7 @@ angular.module('lolApi').service('riotUrfService', function ($q, urfResource) {
             deferred.resolve(data);
         });
         return deferred.promise;
-    }
+    };
 
     this.getUrfMatches = function (hour, minute) {
         var roundedDate, roundedMinute, roundedEpoch, deferred = $q.defer();

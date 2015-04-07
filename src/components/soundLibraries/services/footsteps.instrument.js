@@ -1,8 +1,7 @@
 /*globals angular */
 angular.module('lolApi').service('footstepsInstrumentService', function ($timeout, ngAudio) {
     'use strict';
-    var self = this,
-        locked = false;
+    var self = this;
 
     this.sample = [];
 
@@ -59,17 +58,8 @@ angular.module('lolApi').service('footstepsInstrumentService', function ($timeou
 
     this.playRandomSample = function (cap) {
         var sample;
-        if (self.locked === true) {
-            return;
-        }
-
         sample = self.getRandomSample();
         sample.play();
-        self.locked = true;
-        
-        $timeout(function () {
-            self.locked = false;
-        }, sample.remaining);
     };
 
 });

@@ -1,8 +1,7 @@
 /*globals angular */
 angular.module('lolApi').service('leavesInstrumentService', function ($timeout, ngAudio) {
     'use strict';
-    var self = this,
-        locked = false;
+    var self = this;
 
     this.sample = [];
 
@@ -26,23 +25,14 @@ angular.module('lolApi').service('leavesInstrumentService', function ($timeout, 
     this.sample.push(ngAudio.load('assets/sounds/leaves/18.wav'));
 
     this.getRandomSample = function () {
-        var index = Math.floor(Math.random() * 44);
+        var index = Math.floor(Math.random() * 17);
         return self.sample[index];
     };
 
     this.playRandomSample = function (cap) {
         var sample;
-        if (self.locked === true) {
-            return;
-        }
-
         sample = self.getRandomSample();
         sample.play();
-        self.locked = true;
-        
-        $timeout(function () {
-            self.locked = false;
-        }, sample.remaining);
     };
 
 });

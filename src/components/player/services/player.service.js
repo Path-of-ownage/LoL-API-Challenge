@@ -1,34 +1,51 @@
 /*globals angular */
-angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService, eventCounterService) {
+angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService, eventCounterService, trafficInstrumentService, leavesInstrumentService) {
     'use strict';
 
     function getInstrument(eventName) {
+        var instrumentArray = [];
         switch (eventName) {
         case 'ITEM_PURCHASED':
-            return chimesInstrumentService;
+            //instrumentArray.push(chimesInstrumentService);
+            instrumentArray.push(trafficInstrumentService);
+            break;
         case 'ITEM_UNDO':
-            return harpInstrumentService;
+            instrumentArray.push(harpInstrumentService);
+            break;
         case 'WARD_PLACED':
         case 'WARD_KILL':
         case 'ITEM_DESTROYED':
+            instrumentArray.push(leavesInstrumentService);
+            break;
         case 'SKILL_LEVEL_UP':
-            return birdBgInstrumentService;
+            instrumentArray.push(birdBgInstrumentService);
+            instrumentArray.push(trafficInstrumentService);
+            break;
         case 'BUILDING_KILL':
         case 'ITEM_SOLD':
         case 'ELITE_MONSTER_KILL':
         case 'CHAMPION_KILL':
-            return birdInstrumentService;
+            instrumentArray.push(birdInstrumentService);
+            break;
         default:
-            return; // birdBgInstrumentService;
+            instrumentArray.push(birdBgInstrumentService);
+            break;
+        }
+        return instrumentArray;
+    }
+
+    function playInstruments(instruments) {
+        var i;
+        for (i = 0; i < instruments.length; i += 1) {
+            instruments[i].playRandomSample();
         }
     }
 
     function addToQueue(event) {
         $timeout(function () {
-            var instrument = getInstrument(event.eventType);
-            if (angular.isDefined(instrument)) {
-                instrument.playRandomSample();
-            }
+            var instruments = getInstrument(event.eventType);
+            playInstruments(instruments);
+
             console.log('playing ' + event.eventType + ' at: ' + event.timestamp);
         }, event.timestamp / 5);
     }
