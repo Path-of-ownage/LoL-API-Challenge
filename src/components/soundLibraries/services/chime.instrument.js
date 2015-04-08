@@ -19,8 +19,7 @@ angular.module('lolApi').service('chimesInstrumentService', function (ngAudio, i
     this.sample.push(ngAudio.load('assets/sounds/chimes/12.wav'));
 
     this.getRandomSample = function () {
-        var index = Math.floor(Math.random() * self.sample.length - 1);
-        return self.sample[index];
+        return instrumentService.getRandomSample(self.sample);
     };
 
     this.playRandomSample = function (cap) {

@@ -11,4 +11,9 @@ angular.module('lolApi').service('instrumentService', function () {
             samples[i].volume = volume;
         }
     };
+
+    this.getRandomSample = function (samples) {
+        var index = Math.floor(Math.random() * (samples.length - 1));
+        return samples[index];
+    };
 });

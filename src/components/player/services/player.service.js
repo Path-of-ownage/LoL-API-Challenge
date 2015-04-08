@@ -71,7 +71,10 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
 
         trafficInstrumentService.changeVolume(1 - volume);
 
+        
         soundFxInstrumentService.wind.volume = volume;
         soundFxInstrumentService.cityWinds.volume = 1 - volume;
+        soundFxInstrumentService.wind.play();
+        soundFxInstrumentService.cityWinds.play();
     };
 });

@@ -13,8 +13,7 @@ angular.module('lolApi').service('harpInstrumentService', function (ngAudio, ins
     this.sample.push(ngAudio.load('assets/sounds/harp/6.wav'));
 
     this.getRandomSample = function () {
-        var index = Math.floor(Math.random() * self.sample.length - 1);
-        return self.sample[index];
+        return instrumentService.getRandomSample(self.sample);
     };
 
     this.playRandomSample = function (cap) {

@@ -52,8 +52,7 @@ angular.module('lolApi').service('birdBgInstrumentService', function ($timeout, 
     this.sample.push(ngAudio.load('assets/sounds/birds/soft/44.wav'));
 
     this.getRandomSample = function () {
-        var index = Math.floor(Math.random() * self.sample.length - 1);
-        return self.sample[index];
+        return instrumentService.getRandomSample(self.sample);
     };
 
     this.playRandomSample = function (cap) {
