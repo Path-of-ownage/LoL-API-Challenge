@@ -55,9 +55,12 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         for (i = 0; i < events.length; i += 1) {
             addToQueue(events[i]);
         }
-        //soundFxInstrumentService.wind.play();
+        soundFxInstrumentService.wind.play();
         soundFxInstrumentService.wind.loop = true;
-        soundFxInstrumentService.wind.volume = 0.3;
+        //soundFxInstrumentService.wind.volume = 0.3;
+
+        soundFxInstrumentService.cityWinds.play();
+        soundFxInstrumentService.cityWinds.loop = true;
         console.log(eventCounterService.getCounts(events));
     };
 
@@ -65,7 +68,10 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         birdBgInstrumentService.changeVolume(volume);
         birdInstrumentService.changeVolume(volume);
         chimesInstrumentService.changeVolume(volume);
-        
+
         trafficInstrumentService.changeVolume(1 - volume);
+
+        soundFxInstrumentService.wind.volume = volume;
+        soundFxInstrumentService.cityWinds.volume = 1 - volume;
     };
 });
