@@ -52,7 +52,7 @@ angular.module('lolApi').service('footstepsInstrumentService', function ($timeou
     this.sample.push(ngAudio.load('assets/sounds/footsteps/45.wav'));
 
     this.getRandomSample = function () {
-        var index = Math.floor(Math.random() * 44);
+        var index = Math.floor(Math.random() * self.sample.length - 1);
         return self.sample[index];
     };
 

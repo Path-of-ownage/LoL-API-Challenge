@@ -29,7 +29,7 @@ angular.module('lolApi').service('trafficInstrumentService', function ($timeout,
     this.sample.push(ngAudio.load('assets/sounds/traffic/21.wav'));
 
     this.getRandomSample = function () {
-        var index = Math.floor(Math.random() * 20);
+        var index = Math.floor(Math.random() * self.sample.length - 1);
         return self.sample[index];
     };
 

@@ -25,7 +25,7 @@ angular.module('lolApi').service('leavesInstrumentService', function ($timeout, 
     this.sample.push(ngAudio.load('assets/sounds/leaves/18.wav'));
 
     this.getRandomSample = function () {
-        var index = Math.floor(Math.random() * 17);
+        var index = Math.floor(Math.random() * self.sample.length - 1);
         return self.sample[index];
     };
 
