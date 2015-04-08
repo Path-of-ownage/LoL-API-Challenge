@@ -5,18 +5,18 @@ angular.module('lolApi').service('chimesInstrumentService', function (ngAudio, i
 
     this.sample = [];
 
-    this.sample.push(ngAudio.load('assets/sounds/chimes/1.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/chimes/2.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/chimes/3.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/chimes/4.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/chimes/5.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/chimes/6.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/chimes/7.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/chimes/8.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/chimes/9.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/chimes/10.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/chimes/11.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/chimes/12.wav'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/1.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/2.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/3.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/4.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/5.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/6.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/7.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/8.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/9.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/10.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/11.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/chimes/12.mp3'));
 
     this.getRandomSample = function () {
         return instrumentService.getRandomSample(self.sample);

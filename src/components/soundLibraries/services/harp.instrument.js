@@ -5,12 +5,12 @@ angular.module('lolApi').service('harpInstrumentService', function (ngAudio, ins
 
     this.sample = [];
 
-    this.sample.push(ngAudio.load('assets/sounds/harp/1.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/harp/2.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/harp/3.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/harp/4.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/harp/5.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/harp/6.wav'));
+    this.sample.push(ngAudio.load('assets/sounds/harp/1.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/harp/2.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/harp/3.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/harp/4.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/harp/5.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/harp/6.mp3'));
 
     this.getRandomSample = function () {
         return instrumentService.getRandomSample(self.sample);

@@ -1,5 +1,5 @@
 /*globals angular */
-angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService, eventCounterService, trafficInstrumentService, leavesInstrumentService) {
+angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService, eventCounterService, trafficInstrumentService, leavesInstrumentService, constructionInstrumentService, bellsInstrumentService) {
     'use strict';
 
     function getInstrument(eventName) {
@@ -19,13 +19,16 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
             break;
         case 'SKILL_LEVEL_UP':
             instrumentArray.push(birdBgInstrumentService);
-            instrumentArray.push(trafficInstrumentService);
+            instrumentArray.push(constructionInstrumentService);
             break;
         case 'BUILDING_KILL':
         case 'ITEM_SOLD':
         case 'ELITE_MONSTER_KILL':
+            instrumentArray.push(bellsInstrumentService);
+            break;
         case 'CHAMPION_KILL':
             instrumentArray.push(birdInstrumentService);
+            instrumentArray.push(trafficInstrumentService);
             break;
         default:
             instrumentArray.push(birdBgInstrumentService);
@@ -71,7 +74,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
 
         trafficInstrumentService.changeVolume(1 - volume);
 
-        
+
         soundFxInstrumentService.wind.volume = volume;
         soundFxInstrumentService.cityWinds.volume = 1 - volume;
         soundFxInstrumentService.wind.play();

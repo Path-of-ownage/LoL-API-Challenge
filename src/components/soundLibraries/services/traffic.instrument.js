@@ -6,27 +6,27 @@ angular.module('lolApi').service('trafficInstrumentService', function ($timeout,
 
     this.sample = [];
 
-    this.sample.push(ngAudio.load('assets/sounds/traffic/1.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/2.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/3.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/4.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/5.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/6.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/7.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/8.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/9.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/10.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/11.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/12.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/13.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/14.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/15.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/16.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/17.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/18.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/19.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/20.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/traffic/21.wav'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/1.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/2.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/3.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/4.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/5.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/6.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/7.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/8.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/9.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/10.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/11.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/12.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/13.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/14.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/15.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/16.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/17.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/18.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/19.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/20.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/traffic/21.mp3'));
 
     this.getRandomSample = function () {
         return instrumentService.getRandomSample(self.sample);

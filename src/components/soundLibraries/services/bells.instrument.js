@@ -6,9 +6,9 @@ angular.module('lolApi').service('bellsInstrumentService', function ($timeout, i
 
     this.sample = [];
 
-    this.sample.push(ngAudio.load('assets/sounds/bells/1.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/bells/2.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/bells/3.wav'));
+    this.sample.push(ngAudio.load('assets/sounds/bells/1.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/bells/2.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/bells/3.mp3'));
 
     this.getRandomSample = function () {
         return instrumentService.getRandomSample(self.sample);

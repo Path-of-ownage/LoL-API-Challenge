@@ -5,24 +5,24 @@ angular.module('lolApi').service('leavesInstrumentService', function ($timeout, 
 
     this.sample = [];
 
-    this.sample.push(ngAudio.load('assets/sounds/leaves/1.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/2.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/3.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/4.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/5.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/6.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/7.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/8.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/9.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/10.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/11.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/12.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/13.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/14.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/15.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/16.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/17.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/18.wav'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/1.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/2.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/3.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/4.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/5.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/6.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/7.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/8.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/9.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/10.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/11.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/12.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/13.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/14.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/15.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/16.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/17.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/leaves/18.mp3'));
 
     this.getRandomSample = function () {
         return instrumentService.getRandomSample(self.sample);
