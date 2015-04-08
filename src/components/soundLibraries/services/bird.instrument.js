@@ -58,7 +58,7 @@ angular.module('lolApi').service('birdInstrumentService', function ($timeout, in
     };
 
     this.changeVolume = function (volume) {
-        instrumentService.changeVolume(volume);
+        instrumentService.changeVolume(self.sample, volume);
     };
 
 });

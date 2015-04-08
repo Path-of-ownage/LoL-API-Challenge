@@ -30,6 +30,6 @@ angular.module('lolApi').service('chimesInstrumentService', function (ngAudio, i
     };
     
     this.changeVolume = function (volume) {
-        instrumentService.changeVolume(volume);
+        instrumentService.changeVolume(self.sample, volume);
     };
 });

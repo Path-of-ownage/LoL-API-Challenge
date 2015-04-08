@@ -6,6 +6,6 @@ angular.module('lolApi').service('soundFxInstrumentService', function (ngAudio, 
     this.wind = ngAudio.load('assets/sounds/fx/wind.mp3');
 
     this.changeVolume = function (volume) {
-        instrumentService.changeVolume(volume);
+        instrumentService.changeVolume(self.sample, volume);
     };
 });

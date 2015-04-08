@@ -24,6 +24,6 @@ angular.module('lolApi').service('harpInstrumentService', function (ngAudio, ins
     };
 
     this.changeVolume = function (volume) {
-        instrumentService.changeVolume(volume);
+        instrumentService.changeVolume(self.sample, volume);
     };
 });

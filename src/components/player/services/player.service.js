@@ -60,4 +60,12 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         soundFxInstrumentService.wind.volume = 0.3;
         console.log(eventCounterService.getCounts(events));
     };
+
+    this.changeVolume = function (volume) {
+        birdBgInstrumentService.changeVolume(volume);
+        birdInstrumentService.changeVolume(volume);
+        chimesInstrumentService.changeVolume(volume);
+        
+        trafficInstrumentService.changeVolume(1 - volume);
+    };
 });

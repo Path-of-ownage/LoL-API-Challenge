@@ -63,6 +63,6 @@ angular.module('lolApi').service('footstepsInstrumentService', function ($timeou
     };
 
     this.changeVolume = function (volume) {
-        instrumentService.changeVolume(volume);
+        instrumentService.changeVolume(self.sample, volume);
     };
 });

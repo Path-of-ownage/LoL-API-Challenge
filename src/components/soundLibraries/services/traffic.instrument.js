@@ -49,6 +49,6 @@ angular.module('lolApi').service('trafficInstrumentService', function ($timeout,
     };
 
     this.changeVolume = function (volume) {
-        instrumentService.changeVolume(volume);
+        instrumentService.changeVolume(self.sample, volume);
     };
 });
