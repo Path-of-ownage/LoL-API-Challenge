@@ -1,3 +1,15 @@
+@font-face {
+    font-family: corki;
+    src: url(assets/fonts/Corki-Tuscan.otf);
+}
+
+.main-title {
+    font-family: corki;
+    font-size: 200px;
+    color: #f1c40f;
+    text-shadow: 0px -2px 0px #fde37a, 0px 5px 0px #fff, 0px 10px 0px #34495e;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
