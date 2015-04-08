@@ -6,26 +6,26 @@ angular.module('lolApi').service('constructionInstrumentService', function ($tim
 
     this.sample = [];
 
-    this.sample.push(ngAudio.load('assets/sounds/construction/1.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/2.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/3.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/4.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/5.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/6.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/7.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/8.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/9.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/10.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/11.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/12.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/13.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/14.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/15.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/16.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/17.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/18.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/19.wav'));
-    this.sample.push(ngAudio.load('assets/sounds/construction/20.wav'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/1.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/2.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/3.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/4.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/5.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/6.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/7.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/8.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/9.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/10.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/11.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/12.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/13.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/14.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/15.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/16.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/17.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/18.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/19.mp3'));
+    this.sample.push(ngAudio.load('assets/sounds/construction/20.mp3'));
 
     this.getRandomSample = function () {
         return instrumentService.getRandomSample(self.sample);
