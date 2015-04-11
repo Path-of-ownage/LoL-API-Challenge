@@ -10,7 +10,7 @@
     },
     "scripts": {
         "test": "gulp test",
-        "postinstall": "gulp build"
+        "postinstall": "bower install && gulp build"
     },
     "devDependencies": {
         "gulp": "~3.8.10",
