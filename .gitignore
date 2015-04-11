@@ -6,7 +6,7 @@ bower_components/
 .sass-cache/
 .tmp/
 
-dist/
+# dist/
 
 #Web Storm
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
