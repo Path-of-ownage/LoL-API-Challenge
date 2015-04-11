@@ -2,8 +2,9 @@
   "name": "lolApi",
   "version": "0.0.0",
   "dependencies": {
+    "compression": "^1.4.3",
     "express": "^4.12.3",
-    "gzippo": "^0.2.0"
+    "morgan": "^1.5.2"
   },
   "scripts": {
     "test": "gulp test"
