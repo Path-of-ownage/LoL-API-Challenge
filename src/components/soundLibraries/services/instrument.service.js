@@ -16,4 +16,28 @@ angular.module('lolApi').service('instrumentService', function () {
         var index = Math.floor(Math.random() * (samples.length - 1));
         return samples[index];
     };
+
+
+    this.createVolumeCurveFunction = function (highestVol, lowestVol, maxVol) {
+        var diff, m, c;
+        if (!angular.isDefined(maxVol)) {
+            maxVol = 1;   
+        }
+        diff = highestVol - lowestVol;
+        m = maxVol / diff;
+
+        c = -m * lowestVol;
+
+        return function (x) {
+            var y = m * x + c;
+            if (y < 0) {
+                y = 0;
+            }
+
+            if (y > maxVol) {
+                y = maxVol;
+            }
+            return y;
+        };
+    };
 });

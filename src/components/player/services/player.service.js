@@ -1,6 +1,15 @@
 /*globals angular */
-angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService, eventCounterService, trafficInstrumentService, leavesInstrumentService, constructionInstrumentService, bellsInstrumentService) {
+angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService, eventCounterService, trafficInstrumentService, leavesInstrumentService, constructionInstrumentService, bellsInstrumentService, instrumentService) {
     'use strict';
+
+    var self = this;
+    var cityWindVolumeCurve = instrumentService.createVolumeCurveFunction(0, 55);
+    var natureWindVolumeCurve = instrumentService.createVolumeCurveFunction(100, 45, 0.5);
+    var trafficVolumeCurve = instrumentService.createVolumeCurveFunction(0, 50, 0.7);
+    var birdBgVolumeCurve = instrumentService.createVolumeCurveFunction(100, 45);
+    var birdVolumeCurve = instrumentService.createVolumeCurveFunction(100, 70, 0.8);
+    var constructionVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.6);
+    var bellsVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.5);
 
     function getInstrument(eventName) {
         var instrumentArray = [];
@@ -37,17 +46,6 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         return instrumentArray;
     }
 
-    function generateLineEquation(highestVol, lowestVol) {
-        var diff, m, c;
-        diff = highestVol - lowestVol;
-        m = 1 / diff;
-
-        c = -m * lowestVol;
-
-        return function (x) {
-            return m * x + c;
-        };
-    }
 
     function playInstruments(instruments) {
         var i;
@@ -61,7 +59,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
             var instruments = getInstrument(event.eventType);
             playInstruments(instruments);
 
-            console.log('playing ' + event.eventType + ' at: ' + event.timestamp);
+            //console.log('playing ' + event.eventType + ' at: ' + event.timestamp);
         }, event.timestamp / 5);
     }
 
@@ -77,18 +75,20 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         soundFxInstrumentService.cityWinds.play();
         soundFxInstrumentService.cityWinds.loop = true;
         console.log(eventCounterService.getCounts(events));
+        self.changeVolume(50);
     };
 
     this.changeVolume = function (volume) {
-        birdBgInstrumentService.changeVolume(volume);
-        birdInstrumentService.changeVolume(volume);
-        chimesInstrumentService.changeVolume(volume);
+        birdBgInstrumentService.changeVolume(birdBgVolumeCurve(volume));
+        birdInstrumentService.changeVolume(birdVolumeCurve(volume));
+        //chimesInstrumentService.changeVolume(volume);constructionVolumeCurve
+        constructionInstrumentService.changeVolume(constructionVolumeCurve(volume));
+        trafficInstrumentService.changeVolume(trafficVolumeCurve(volume));
+        bellsInstrumentService.changeVolume(bellsVolumeCurve(volume));
 
-        trafficInstrumentService.changeVolume(1 - volume);
-
-
-        soundFxInstrumentService.wind.volume = volume;
-        soundFxInstrumentService.cityWinds.volume = 1 - volume;
+        soundFxInstrumentService.wind.volume = natureWindVolumeCurve(volume);
+        soundFxInstrumentService.cityWinds.volume = cityWindVolumeCurve(volume);
+        console.log("nature:" + soundFxInstrumentService.wind.volume + ", city:" + soundFxInstrumentService.cityWinds.volume);
         soundFxInstrumentService.wind.play();
         soundFxInstrumentService.cityWinds.play();
     };
