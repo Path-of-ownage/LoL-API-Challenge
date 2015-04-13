@@ -37,6 +37,18 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         return instrumentArray;
     }
 
+    function generateLineEquation(highestVol, lowestVol) {
+        var diff, m, c;
+        diff = highestVol - lowestVol;
+        m = 1 / diff;
+
+        c = -m * lowestVol;
+
+        return function (x) {
+            return m * x + c;
+        };
+    }
+
     function playInstruments(instruments) {
         var i;
         for (i = 0; i < instruments.length; i += 1) {
