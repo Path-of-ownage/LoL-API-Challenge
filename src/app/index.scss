@@ -6,13 +6,15 @@
 @font-face {
     font-family: 'corki';
     src: url('../assets/fonts/corki-tuscan/corki-tuscan-webfont.eot');
-    src: url('../assets/fonts/corki-tuscan/corki-tuscan-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../assets/fonts/corki-tuscan/corki-tuscan-webfont.woff2') format('woff2'),
-         url('../assets/fonts/corki-tuscan/corki-tuscan-webfont.woff') format('woff'),
-         url('../assets/fonts/corki-tuscan/corki-tuscan-webfont.ttf') format('truetype'),
-         url('../assets/fonts/corki-tuscan/corki-tuscan-webfont.svg#corkituscan') format('svg');
+    src: url('../assets/fonts/corki-tuscan/corki-tuscan-webfont.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/corki-tuscan/corki-tuscan-webfont.woff2') format('woff2'), url('../assets/fonts/corki-tuscan/corki-tuscan-webfont.woff') format('woff'), url('../assets/fonts/corki-tuscan/corki-tuscan-webfont.ttf') format('truetype'), url('../assets/fonts/corki-tuscan/corki-tuscan-webfont.svg#corkituscan') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 50%;
+    }
 }
 
 body {
