@@ -1,7 +1,7 @@
 /*globals angular */
-angular.module('lolApi').controller('MainCtrl', function ($scope, colourService) {
+angular.module('lolApi').controller('MainCtrl', function ($scope, colourService, matchService, eventSerializerService, playerService) {
     'use strict';
-    
+
     $scope.enviromentMix = 50;
 
     $scope.getColour = function (value) {
@@ -11,4 +11,13 @@ angular.module('lolApi').controller('MainCtrl', function ($scope, colourService)
         var colour = colourService.getColour(value / 100);
         return colour;
     };
+
+    $scope.changeVolume = function () {
+        playerService.changeVolume($scope.enviromentMix);
+    };
+
+    matchService.getTimelineData(1427995800).then(function (data) {
+        $scope.matchesId = eventSerializerService.getEvents(data[0]);
+        playerService.play($scope.matchesId);
+    });
 });
