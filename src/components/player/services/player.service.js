@@ -16,28 +16,28 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     function getInstrument(eventName) {
         var instrumentArray = [];
         switch (eventName) {
-        case 'ITEM_PURCHASED':
+        case 'ITEM_PURCHASED': //265
             //instrumentArray.push(chimesInstrumentService);
             instrumentArray.push(trafficInstrumentService);
             break;
-        case 'ITEM_UNDO':
+        case 'ITEM_UNDO': //20
             instrumentArray.push(harpInstrumentService);
             break;
-        case 'WARD_PLACED':
-        case 'WARD_KILL':
-        case 'ITEM_DESTROYED':
+        case 'WARD_PLACED': //72
+        case 'WARD_KILL': //2
+        case 'ITEM_DESTROYED': //180
             instrumentArray.push(leavesInstrumentService);
             break;
-        case 'SKILL_LEVEL_UP':
+        case 'SKILL_LEVEL_UP': //180
             instrumentArray.push(birdBgInstrumentService);
             instrumentArray.push(constructionInstrumentService);
             break;
-        case 'BUILDING_KILL':
-        case 'ITEM_SOLD':
-        case 'ELITE_MONSTER_KILL':
+        case 'BUILDING_KILL': //18
+        case 'ITEM_SOLD': //20
+        case 'ELITE_MONSTER_KILL': //12
             instrumentArray.push(bellsInstrumentService);
             break;
-        case 'CHAMPION_KILL':
+        case 'CHAMPION_KILL': //106
             instrumentArray.push(birdInstrumentService);
             instrumentArray.push(trafficInstrumentService);
             break;

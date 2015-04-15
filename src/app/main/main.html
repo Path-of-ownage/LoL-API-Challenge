@@ -3,20 +3,23 @@
     <img src="assets/images/backdrops/nature.jpg" style="position: absolute; top: 0px; left: 0px; opacity: {{enviromentMix / 100 }}" />
 </div>
 
+<div class="volume-buttons">
+    <span ng-show="muted" class="glyphicon glyphicon glyphicon-volume-off" aria-hidden="true" ng-click="setMuted(false)"></span>
+    <span ng-hide="muted" class="glyphicon glyphicon glyphicon-volume-up" aria-hidden="true" ng-click="setMuted(true)"></span>
+</div>
+
 <div class="full-center">
     <div class="container">
         <div class="row text-center">
             <h1 class="main-title" style="text-shadow: 0px -2px 0px #fde37a, 0px 5px 0px {{ getColour(enviromentMix) }}, 0px 0px 15px #454545;">U.R.F Soundscape</h1>
         </div>
-        <!--<p><a class="btn btn-lg btn-success" ng-href="#">Song! Urf Urf!</a></p>-->
 
         <div class="row">
             <input type="range" ng-model="enviromentMix" ng-mouseup="changeVolume()">
         </div>
-
-        <div class="row text-center volume-buttons">
-            <span ng-show="muted" class="glyphicon glyphicon glyphicon-volume-off" aria-hidden="true" ng-click="setMuted(false)"></span>
-            <span ng-hide="muted" class="glyphicon glyphicon glyphicon-volume-up" aria-hidden="true" ng-click="setMuted(true)"></span>
+        
+        <div class="row text-center">
+                <button href class="btn btn-lg btn-main" ng-click="">What is this?</button>
         </div>
     </div>
 </div>
