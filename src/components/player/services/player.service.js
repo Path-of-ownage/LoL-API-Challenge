@@ -3,6 +3,8 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     'use strict';
 
     var self = this;
+    var playCallback;
+
     var cityWindVolumeCurve = instrumentService.createVolumeCurveFunction(0, 55);
     var natureWindVolumeCurve = instrumentService.createVolumeCurveFunction(100, 45, 0.5);
     var trafficVolumeCurve = instrumentService.createVolumeCurveFunction(0, 50, 0.7);
@@ -59,7 +61,9 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
             var instruments = getInstrument(event.eventType);
             playInstruments(instruments);
 
-            //console.log('playing ' + event.eventType + ' at: ' + event.timestamp);
+            if (angular.isDefined(playCallback)) {
+                playCallback(event);
+            }
         }, event.timestamp / 5);
     }
 
@@ -88,8 +92,25 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
 
         soundFxInstrumentService.wind.volume = natureWindVolumeCurve(volume);
         soundFxInstrumentService.cityWinds.volume = cityWindVolumeCurve(volume);
-        console.log("nature:" + soundFxInstrumentService.wind.volume + ", city:" + soundFxInstrumentService.cityWinds.volume);
+        //console.log("nature:" + soundFxInstrumentService.wind.volume + ", city:" + soundFxInstrumentService.cityWinds.volume);
         soundFxInstrumentService.wind.play();
         soundFxInstrumentService.cityWinds.play();
     };
+
+    this.setPlayCallback = function (callback) {
+        playCallback = callback;
+    };
+
+    this.mute = function () {
+        birdBgInstrumentService.changeVolume(0);
+        birdInstrumentService.changeVolume(0);
+        chimesInstrumentService.changeVolume(0);
+        constructionInstrumentService.changeVolume(0);
+        trafficInstrumentService.changeVolume(0);
+        bellsInstrumentService.changeVolume(0);
+        leavesInstrumentService.changeVolume(0);
+
+        soundFxInstrumentService.wind.volume = 0;
+        soundFxInstrumentService.cityWinds.volume = 0;
+    }
 });

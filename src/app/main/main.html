@@ -13,6 +13,11 @@
         <div class="row">
             <input type="range" ng-model="enviromentMix" ng-mouseup="changeVolume()">
         </div>
+
+        <div class="row text-center volume-buttons">
+            <span ng-show="muted" class="glyphicon glyphicon glyphicon-volume-off" aria-hidden="true" ng-click="setMuted(false)"></span>
+            <span ng-hide="muted" class="glyphicon glyphicon glyphicon-volume-up" aria-hidden="true" ng-click="setMuted(true)"></span>
+        </div>
     </div>
 </div>
 
