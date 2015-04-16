@@ -38,10 +38,10 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         case 'ITEM_UNDO': //20
         case 'BUILDING_KILL': //18
             instrumentArray.push(chimesInstrumentService);
-            instrumentArray.push(footstepsInstrumentService);
+            instrumentArray.push(bikeInstrumentService);
             break;
         case 'WARD_PLACED': //72
-            instrumentArray.push(bikeInstrumentService);
+            instrumentArray.push(footstepsInstrumentService);
             instrumentArray.push(frogsInstrumentService);
             break;
         case 'WARD_KILL': //2
