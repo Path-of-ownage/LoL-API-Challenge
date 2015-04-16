@@ -21,8 +21,6 @@ angular.module('lolApi').service('leavesInstrumentService', function ($timeout, 
     this.sample.push(ngAudio.load('assets/sounds/leaves/14.mp3'));
     this.sample.push(ngAudio.load('assets/sounds/leaves/15.mp3'));
     this.sample.push(ngAudio.load('assets/sounds/leaves/16.mp3'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/17.mp3'));
-    this.sample.push(ngAudio.load('assets/sounds/leaves/18.mp3'));
 
     this.getRandomSample = function () {
         return instrumentService.getRandomSample(self.sample);
