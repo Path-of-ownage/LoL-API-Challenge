@@ -20,7 +20,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     var frogVolumeCurve = instrumentService.createVolumeCurveFunction(90, 40, 0.8);
     var cricketVolumeCurve = instrumentService.createVolumeCurveFunction(80, 50);
     var cricketBgVolumeCurve = instrumentService.createVolumeCurveFunction(70, 40, 0.8);
-    var footstepsVolumeCurve = instrumentService.createVolumeCurveFunction(20, 40, 0.3);
+    var footstepsVolumeCurve = instrumentService.createVolumeCurveFunction(20, 50, 0.5);
     var chimesVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60, 0.3);
 
     soundFxInstrumentService.wind.loop = true;
