@@ -35,7 +35,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
             instrumentArray.push(trafficInstrumentService);
             break;
         case 'ITEM_UNDO': //20
-            instrumentArray.push(harpInstrumentService);
+            //instrumentArray.push(harpInstrumentService);
             break;
         case 'WARD_PLACED': //72
             instrumentArray.push(bikeInstrumentService);
