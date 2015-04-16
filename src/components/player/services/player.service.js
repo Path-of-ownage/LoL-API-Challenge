@@ -7,7 +7,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     var endPlayCallback;
 
     var cityWindVolumeCurve = instrumentService.createVolumeCurveFunction(20, 65);
-    var natureWindVolumeCurve = instrumentService.createVolumeCurveFunction(80, 35, 0.5);
+    var natureWindVolumeCurve = instrumentService.createVolumeCurveFunction(80, 35, 0.3);
     var hubbubVolumeCurve = instrumentService.createVolumeCurveFunction(0, 20, 0.5);
     var riverVolumeCurve = instrumentService.createVolumeCurveFunction(100, 80, 0.4);
 
@@ -16,7 +16,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     var birdVolumeCurve = instrumentService.createVolumeCurveFunction(90, 60, 0.8);
     var constructionVolumeCurve = instrumentService.createVolumeCurveFunction(10, 40, 0.6);
     var bellsVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.5);
-    var bikeVolumeCurve = instrumentService.createVolumeCurveFunction(10, 50, 0.3);
+    var bikeVolumeCurve = instrumentService.createVolumeCurveFunction(10, 50, 0.1);
     var frogVolumeCurve = instrumentService.createVolumeCurveFunction(90, 40, 0.8);
     var cricketVolumeCurve = instrumentService.createVolumeCurveFunction(80, 50);
     var cricketBgVolumeCurve = instrumentService.createVolumeCurveFunction(70, 40, 0.8);
@@ -103,7 +103,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
             addToQueue(events[i]);
         }
 
-        findNewSong(events[i-1].timestamp);
+        findNewSong(events[i - 1].timestamp);
 
         soundFxInstrumentService.wind.play();
         soundFxInstrumentService.cityWinds.play();
@@ -144,9 +144,9 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     this.setPlayCallback = function (callback) {
         playCallback = callback;
     };
-    
+
     this.setEndPlayCallback = function (callback) {
-        endPlayCallback = callback;  
+        endPlayCallback = callback;
     };
 
     this.mute = function () {
