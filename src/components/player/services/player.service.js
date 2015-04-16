@@ -1,5 +1,5 @@
 /*globals angular */
-angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService, eventCounterService, trafficInstrumentService, leavesInstrumentService, constructionInstrumentService, bellsInstrumentService, instrumentService) {
+angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService, eventCounterService, trafficInstrumentService, leavesInstrumentService, constructionInstrumentService, bellsInstrumentService, bikeInstrumentService, cricketBgInstrumentService, cricketInstrumentService, frogsInstrumentService, thunderInstrumentService, instrumentService) {
     'use strict';
 
     var self = this;
