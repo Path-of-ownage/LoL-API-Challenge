@@ -5,14 +5,14 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     var self = this;
     var playCallback;
 
-    var cityWindVolumeCurve = instrumentService.createVolumeCurveFunction(0, 55);
-    var natureWindVolumeCurve = instrumentService.createVolumeCurveFunction(100, 45, 0.5);
-    var hubbubVolumeCurve = instrumentService.createVolumeCurveFunction(0, 30);
-    var riverVolumeCurve = instrumentService.createVolumeCurveFunction(100, 80, 0.6);
+    var cityWindVolumeCurve = instrumentService.createVolumeCurveFunction(20, 65);
+    var natureWindVolumeCurve = instrumentService.createVolumeCurveFunction(80, 35, 0.5);
+    var hubbubVolumeCurve = instrumentService.createVolumeCurveFunction(0, 20, 0.5);
+    var riverVolumeCurve = instrumentService.createVolumeCurveFunction(100, 80, 0.4);
 
     var trafficVolumeCurve = instrumentService.createVolumeCurveFunction(0, 50, 0.7);
-    var birdBgVolumeCurve = instrumentService.createVolumeCurveFunction(100, 45);
-    var birdVolumeCurve = instrumentService.createVolumeCurveFunction(100, 70, 0.8);
+    var birdBgVolumeCurve = instrumentService.createVolumeCurveFunction(100, 35);
+    var birdVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60, 0.8);
     var constructionVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.6);
     var bellsVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.5);
 
