@@ -4,7 +4,7 @@ angular.module('lolApi').controller('MainCtrl', function ($scope, colourService,
 
     $scope.enviromentMix = 50;
     $scope.muted = false;
-
+    
     $scope.getColour = function (value) {
         if (!angular.isDefined(value)) {
             return colourService.getColour(0.5);
@@ -19,12 +19,19 @@ angular.module('lolApi').controller('MainCtrl', function ($scope, colourService,
     };
 
     matchService.getTimelineData(1427995800).then(function (data) {
-        $scope.matchesId = eventSerializerService.getEvents(data[0]);
-        playerService.play($scope.matchesId);
+        $scope.events = eventSerializerService.getEvents(data);
+        playerService.play($scope.events);
     });
 
     playerService.setPlayCallback(function (event) {
         //console.log('playing ' + event.eventType + ' at: ' + event.timestamp);
+    });
+
+    playerService.setEndPlayCallback(function () {
+        matchService.getTimelineData(1427995800).then(function (data) {
+            $scope.events = eventSerializerService.getEvents(data);
+            playerService.play($scope.events);
+        });
     });
 
     $scope.setMuted = function (muted) {

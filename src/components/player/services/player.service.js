@@ -4,6 +4,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
 
     var self = this;
     var playCallback;
+    var endPlayCallback;
 
     var cityWindVolumeCurve = instrumentService.createVolumeCurveFunction(20, 65);
     var natureWindVolumeCurve = instrumentService.createVolumeCurveFunction(80, 35, 0.5);
@@ -20,7 +21,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     var cricketVolumeCurve = instrumentService.createVolumeCurveFunction(80, 50);
     var cricketBgVolumeCurve = instrumentService.createVolumeCurveFunction(70, 40, 0.8);
     var footstepsVolumeCurve = instrumentService.createVolumeCurveFunction(20, 40, 0.3);
-    var chimesVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60, 0.3); 
+    var chimesVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60, 0.3);
 
     soundFxInstrumentService.wind.loop = true;
     soundFxInstrumentService.cityWinds.loop = true;
@@ -90,11 +91,20 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         }, event.timestamp / 5);
     }
 
+    function findNewSong(timestamp) {
+        $timeout(function () {
+            endPlayCallback();
+        }, timestamp / 5);
+    }
+
     this.play = function (events) {
         var i;
         for (i = 0; i < events.length; i += 1) {
             addToQueue(events[i]);
         }
+
+        findNewSong(events[i-1].timestamp);
+
         soundFxInstrumentService.wind.play();
         soundFxInstrumentService.cityWinds.play();
         soundFxInstrumentService.hubbub.play();
@@ -133,6 +143,10 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
 
     this.setPlayCallback = function (callback) {
         playCallback = callback;
+    };
+    
+    this.setEndPlayCallback = function (callback) {
+        endPlayCallback = callback;  
     };
 
     this.mute = function () {
