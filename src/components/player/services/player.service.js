@@ -20,6 +20,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     var cricketVolumeCurve = instrumentService.createVolumeCurveFunction(80, 50);
     var cricketBgVolumeCurve = instrumentService.createVolumeCurveFunction(70, 40, 0.8);
     var footstepsVolumeCurve = instrumentService.createVolumeCurveFunction(20, 40, 0.3);
+    var chimesVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60, 0.3); 
 
     soundFxInstrumentService.wind.loop = true;
     soundFxInstrumentService.cityWinds.loop = true;
@@ -30,12 +31,13 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         var instrumentArray = [];
         switch (eventName) {
         case 'ITEM_PURCHASED': //265
-            //instrumentArray.push(chimesInstrumentService);
             instrumentArray.push(cricketBgInstrumentService);
             instrumentArray.push(trafficInstrumentService);
             break;
         case 'ITEM_UNDO': //20
-            //instrumentArray.push(harpInstrumentService);
+        case 'BUILDING_KILL': //18
+            instrumentArray.push(chimesInstrumentService);
+            instrumentArray.push(footstepsInstrumentService);
             break;
         case 'WARD_PLACED': //72
             instrumentArray.push(bikeInstrumentService);
@@ -51,7 +53,6 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
             instrumentArray.push(birdBgInstrumentService);
             instrumentArray.push(constructionInstrumentService);
             break;
-        case 'BUILDING_KILL': //18
         case 'ITEM_SOLD': //20
             instrumentArray.push(cricketInstrumentService);
             break;
@@ -67,6 +68,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
             break;
         }
         return instrumentArray;
+        //instrumentArray.push(harpInstrumentService);
     }
 
 
@@ -105,7 +107,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     this.changeVolume = function (volume) {
         birdBgInstrumentService.changeVolume(birdBgVolumeCurve(volume));
         birdInstrumentService.changeVolume(birdVolumeCurve(volume));
-        //chimesInstrumentService.changeVolume(volume);constructionVolumeCurve
+        chimesInstrumentService.changeVolume(chimesVolumeCurve(volume));
         constructionInstrumentService.changeVolume(constructionVolumeCurve(volume));
         trafficInstrumentService.changeVolume(trafficVolumeCurve(volume));
         bellsInstrumentService.changeVolume(bellsVolumeCurve(volume));
