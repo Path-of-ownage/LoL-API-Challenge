@@ -14,7 +14,11 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     var birdBgVolumeCurve = instrumentService.createVolumeCurveFunction(100, 35);
     var birdVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60, 0.8);
     var constructionVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.6);
-    var bellsVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.5);
+    var bellsVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.4);
+    var bikeVolumeCurve = instrumentService.createVolumeCurveFunction(10, 50, 0.7);
+    var frogVolumeCurve = instrumentService.createVolumeCurveFunction(90, 40, 0.8);
+    var cricketVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60);
+    var cricketBgVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60, 0.8);
 
     soundFxInstrumentService.wind.loop = true;
     soundFxInstrumentService.cityWinds.loop = true;
@@ -26,13 +30,19 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         switch (eventName) {
         case 'ITEM_PURCHASED': //265
             //instrumentArray.push(chimesInstrumentService);
+            instrumentArray.push(cricketBgInstrumentService);
             instrumentArray.push(trafficInstrumentService);
             break;
         case 'ITEM_UNDO': //20
             instrumentArray.push(harpInstrumentService);
             break;
         case 'WARD_PLACED': //72
+            instrumentArray.push(bikeInstrumentService);
+            instrumentArray.push(frogsInstrumentService);
+            break;
         case 'WARD_KILL': //2
+            instrumentArray.push(thunderInstrumentService);
+            break;
         case 'ITEM_DESTROYED': //180
             instrumentArray.push(leavesInstrumentService);
             break;
@@ -42,6 +52,8 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
             break;
         case 'BUILDING_KILL': //18
         case 'ITEM_SOLD': //20
+            instrumentArray.push(cricketInstrumentService);
+            break;
         case 'ELITE_MONSTER_KILL': //12
             instrumentArray.push(bellsInstrumentService);
             break;
@@ -96,17 +108,23 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         constructionInstrumentService.changeVolume(constructionVolumeCurve(volume));
         trafficInstrumentService.changeVolume(trafficVolumeCurve(volume));
         bellsInstrumentService.changeVolume(bellsVolumeCurve(volume));
+        bikeInstrumentService.changeVolume(bikeVolumeCurve(volume));
+        frogsInstrumentService.changeVolume(frogVolumeCurve(volume));
+        cricketInstrumentService.changeVolume(cricketVolumeCurve(volume));
+        cricketBgInstrumentService.changeVolume(cricketBgVolumeCurve(volume));
+        thunderInstrumentService.changeVolume(volume / 100);
+
 
         soundFxInstrumentService.wind.volume = natureWindVolumeCurve(volume);
         soundFxInstrumentService.cityWinds.volume = cityWindVolumeCurve(volume);
         soundFxInstrumentService.hubbub.volume = hubbubVolumeCurve(volume);
         soundFxInstrumentService.river.volume = riverVolumeCurve(volume);
 
-        //console.log("nature:" + soundFxInstrumentService.wind.volume + ", city:" + soundFxInstrumentService.cityWinds.volume);
         soundFxInstrumentService.wind.play();
         soundFxInstrumentService.cityWinds.play();
         soundFxInstrumentService.hubbub.play();
         soundFxInstrumentService.river.play();
+        //console.log("nature:" + soundFxInstrumentService.wind.volume + ", city:" + soundFxInstrumentService.cityWinds.volume);
     };
 
     this.setPlayCallback = function (callback) {
@@ -121,10 +139,15 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         trafficInstrumentService.changeVolume(0);
         bellsInstrumentService.changeVolume(0);
         leavesInstrumentService.changeVolume(0);
+        bikeInstrumentService.changeVolume(0);
+        frogsInstrumentService.changeVolume(0);
+        cricketInstrumentService.changeVolume(0);
+        cricketBgInstrumentService.changeVolume(0);
+        thunderInstrumentService.changeVolume(0);
 
         soundFxInstrumentService.wind.volume = 0;
         soundFxInstrumentService.cityWinds.volume = 0;
         soundFxInstrumentService.hubbub.volume = 0;
         soundFxInstrumentService.river.volume = 0;
-    }
+    };
 });
