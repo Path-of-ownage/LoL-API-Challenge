@@ -1,5 +1,5 @@
 /*globals angular */
-angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService, eventCounterService, trafficInstrumentService, leavesInstrumentService, constructionInstrumentService, bellsInstrumentService, bikeInstrumentService, cricketBgInstrumentService, cricketInstrumentService, frogsInstrumentService, thunderInstrumentService, instrumentService) {
+angular.module('lolApi').service('playerService', function ($timeout, birdBgInstrumentService, soundFxInstrumentService, harpInstrumentService, chimesInstrumentService, birdInstrumentService, eventCounterService, trafficInstrumentService, leavesInstrumentService, constructionInstrumentService, bellsInstrumentService, bikeInstrumentService, cricketBgInstrumentService, cricketInstrumentService, frogsInstrumentService, thunderInstrumentService, instrumentService, footstepsInstrumentService) {
     'use strict';
 
     var self = this;
@@ -10,15 +10,16 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     var hubbubVolumeCurve = instrumentService.createVolumeCurveFunction(0, 20, 0.5);
     var riverVolumeCurve = instrumentService.createVolumeCurveFunction(100, 80, 0.4);
 
-    var trafficVolumeCurve = instrumentService.createVolumeCurveFunction(0, 50, 0.7);
-    var birdBgVolumeCurve = instrumentService.createVolumeCurveFunction(100, 35);
-    var birdVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60, 0.8);
-    var constructionVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.6);
-    var bellsVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.4);
-    var bikeVolumeCurve = instrumentService.createVolumeCurveFunction(10, 50, 0.7);
+    var trafficVolumeCurve = instrumentService.createVolumeCurveFunction(20, 60, 0.7);
+    var birdBgVolumeCurve = instrumentService.createVolumeCurveFunction(70, 35);
+    var birdVolumeCurve = instrumentService.createVolumeCurveFunction(90, 60, 0.8);
+    var constructionVolumeCurve = instrumentService.createVolumeCurveFunction(10, 40, 0.6);
+    var bellsVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.5);
+    var bikeVolumeCurve = instrumentService.createVolumeCurveFunction(10, 50, 0.3);
     var frogVolumeCurve = instrumentService.createVolumeCurveFunction(90, 40, 0.8);
-    var cricketVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60);
-    var cricketBgVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60, 0.8);
+    var cricketVolumeCurve = instrumentService.createVolumeCurveFunction(80, 50);
+    var cricketBgVolumeCurve = instrumentService.createVolumeCurveFunction(70, 40, 0.8);
+    var footstepsVolumeCurve = instrumentService.createVolumeCurveFunction(20, 40, 0.3);
 
     soundFxInstrumentService.wind.loop = true;
     soundFxInstrumentService.cityWinds.loop = true;
@@ -112,6 +113,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         frogsInstrumentService.changeVolume(frogVolumeCurve(volume));
         cricketInstrumentService.changeVolume(cricketVolumeCurve(volume));
         cricketBgInstrumentService.changeVolume(cricketBgVolumeCurve(volume));
+        footstepsInstrumentService.changeVolume(footstepsVolumeCurve(volume));
         thunderInstrumentService.changeVolume(volume / 100);
 
 
@@ -143,6 +145,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         frogsInstrumentService.changeVolume(0);
         cricketInstrumentService.changeVolume(0);
         cricketBgInstrumentService.changeVolume(0);
+        footstepsInstrumentService.changeVolume(0);
         thunderInstrumentService.changeVolume(0);
 
         soundFxInstrumentService.wind.volume = 0;
