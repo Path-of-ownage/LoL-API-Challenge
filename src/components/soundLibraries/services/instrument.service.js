@@ -13,7 +13,7 @@ angular.module('lolApi').service('instrumentService', function () {
     };
 
     this.getRandomSample = function (samples) {
-        var index = Math.floor(Math.random() * (samples.length - 1));
+        var index = Math.floor(Math.random() * (samples.length));
         return samples[index];
     };
 

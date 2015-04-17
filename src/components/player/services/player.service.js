@@ -27,6 +27,7 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     soundFxInstrumentService.cityWinds.loop = true;
     soundFxInstrumentService.hubbub.loop = true;
     soundFxInstrumentService.river.loop = true;
+    thunderInstrumentService.changeVolume(0.5);
 
     function getInstrument(eventName) {
         var instrumentArray = [];
@@ -93,11 +94,12 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
 
     function findNewSong(timestamp) {
         $timeout(function () {
+            console.log('Current match ended, finding new match');
             endPlayCallback();
         }, timestamp / 5);
     }
 
-    this.play = function (events) {
+    this.play = function (events, volume) {
         var i;
         for (i = 0; i < events.length; i += 1) {
             addToQueue(events[i]);
@@ -105,13 +107,10 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
 
         findNewSong(events[i - 1].timestamp);
 
-        soundFxInstrumentService.wind.play();
-        soundFxInstrumentService.cityWinds.play();
-        soundFxInstrumentService.hubbub.play();
-        soundFxInstrumentService.river.play();
+        self.replayBackground();
 
         //console.log(eventCounterService.getCounts(events));
-        self.changeVolume(50);
+        self.changeVolume(volume);
     };
 
     this.changeVolume = function (volume) {
@@ -126,18 +125,13 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         cricketInstrumentService.changeVolume(cricketVolumeCurve(volume));
         cricketBgInstrumentService.changeVolume(cricketBgVolumeCurve(volume));
         footstepsInstrumentService.changeVolume(footstepsVolumeCurve(volume));
-        thunderInstrumentService.changeVolume(volume / 100);
-
 
         soundFxInstrumentService.wind.volume = natureWindVolumeCurve(volume);
         soundFxInstrumentService.cityWinds.volume = cityWindVolumeCurve(volume);
         soundFxInstrumentService.hubbub.volume = hubbubVolumeCurve(volume);
         soundFxInstrumentService.river.volume = riverVolumeCurve(volume);
 
-        soundFxInstrumentService.wind.play();
-        soundFxInstrumentService.cityWinds.play();
-        soundFxInstrumentService.hubbub.play();
-        soundFxInstrumentService.river.play();
+        self.replayBackground();
         //console.log("nature:" + soundFxInstrumentService.wind.volume + ", city:" + soundFxInstrumentService.cityWinds.volume);
     };
 
@@ -168,5 +162,12 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
         soundFxInstrumentService.cityWinds.volume = 0;
         soundFxInstrumentService.hubbub.volume = 0;
         soundFxInstrumentService.river.volume = 0;
+    };
+    
+    this.replayBackground = function () {
+        soundFxInstrumentService.wind.play();
+        soundFxInstrumentService.cityWinds.play();
+        soundFxInstrumentService.hubbub.play();
+        soundFxInstrumentService.river.play();
     };
 });
