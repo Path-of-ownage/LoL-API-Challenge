@@ -17,17 +17,17 @@ angular.module('lolApi').service('playerService', function ($timeout, birdBgInst
     var constructionVolumeCurve = instrumentService.createVolumeCurveFunction(10, 40, 0.6);
     var bellsVolumeCurve = instrumentService.createVolumeCurveFunction(0, 40, 0.5);
     var bikeVolumeCurve = instrumentService.createVolumeCurveFunction(10, 50, 0.1);
-    var frogVolumeCurve = instrumentService.createVolumeCurveFunction(90, 40, 0.8);
+    var frogVolumeCurve = instrumentService.createVolumeCurveFunction(90, 50, 0.4);
     var cricketVolumeCurve = instrumentService.createVolumeCurveFunction(80, 50);
     var cricketBgVolumeCurve = instrumentService.createVolumeCurveFunction(70, 40, 0.8);
-    var footstepsVolumeCurve = instrumentService.createVolumeCurveFunction(20, 50, 0.5);
+    var footstepsVolumeCurve = instrumentService.createVolumeCurveFunction(20, 50, 0.4);
     var chimesVolumeCurve = instrumentService.createVolumeCurveFunction(100, 60, 0.3);
 
     soundFxInstrumentService.wind.loop = true;
     soundFxInstrumentService.cityWinds.loop = true;
     soundFxInstrumentService.hubbub.loop = true;
     soundFxInstrumentService.river.loop = true;
-    thunderInstrumentService.changeVolume(0.5);
+    thunderInstrumentService.changeVolume(0.4);
 
     function getInstrument(eventName) {
         var instrumentArray = [];
