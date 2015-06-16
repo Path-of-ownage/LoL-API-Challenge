@@ -17,9 +17,20 @@
         <div class="row">
             <input type="range" ng-model="enviromentMix" ng-mouseup="changeVolume()">
         </div>
-        
-        <div class="row text-center">
-                <button href class="btn btn-lg btn-main" ng-click="open()">What is this?</button>
+
+        <div class="row text-center form-group">
+            <div class="col-sm-4 col-sm-offset-4 col-xs-12">
+                <form ng-submit="getTimeline()">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="usernameQuery" placeholder="League Username" required>
+                        <span class="input-group-btn"><button type="submit" class="btn btn-primary btn-height-fix" type="button">Fetch</button></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row text-center form-group">
+            <button href class="btn btn-lg btn-main" ng-click="open()">What is this?</button>
         </div>
     </div>
 </div>

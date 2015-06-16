@@ -19,10 +19,10 @@ angular.module('lolApi').controller('MainCtrl', function ($scope, $modal, colour
         $scope.muted = false;
     };
 
-    matchService.getTimelineData(1427995800).then(function (data) {
+    /*matchService.getTimelineData(1427995800).then(function (data) {
         $scope.events = eventSerializerService.getEvents(data);
         playerService.play($scope.events, $scope.enviromentMix);
-    });
+    });*/
 
     playerService.setPlayCallback(function (event) {
         //console.log('playing ' + event.eventType + ' at: ' + event.timestamp);
@@ -60,5 +60,12 @@ angular.module('lolApi').controller('MainCtrl', function ($scope, $modal, colour
             }
         });
         playerService.replayBackground();
+    };
+
+    $scope.getTimeline = function () {
+        matchService.getTimelineDataFromUser($scope.usernameQuery).then(function (data) {
+            $scope.events = eventSerializerService.getEvents(data);
+            playerService.play($scope.events, $scope.enviromentMix);
+        });
     };
 });

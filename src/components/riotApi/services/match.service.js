@@ -32,4 +32,9 @@ angular.module('lolApi').service('matchService', function ($q, $timeout, riotMat
 
         return deferred.promise;
     };
+
+    this.getTimelineDataFromUser = function (username) {
+        var deferred = $q.defer();
+        return deferred.promise;
+    };
 });
