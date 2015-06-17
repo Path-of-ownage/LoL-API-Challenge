@@ -14,3 +14,9 @@ angular.module('lolApi').factory('summonerResource', function ($resource, apiSer
     return $resource('https://:region.api.pvp.net/api/lol/:region/v1.4/summoner/by-name/:username?api_key=' + apiService.getApiKey());
 });
 
+
+angular.module('lolApi').factory('matchHistoryResource', function ($resource, apiService) {
+    'use strict';
+    return $resource('https://euw.api.pvp.net/api/lol/euw/v2.2/matchhistory/:id?api_key=' + apiService.getApiKey());
+});
+

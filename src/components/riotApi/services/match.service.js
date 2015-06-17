@@ -1,5 +1,5 @@
 /*globals angular */
-angular.module('lolApi').service('matchService', function ($q, $timeout, riotMatchService, riotUrfService, mathUtilService) {
+angular.module('lolApi').service('matchService', function ($q, $timeout, riotMatchService, riotUrfService, summonerService, mathUtilService) {
     'use strict';
 
     var totalMatchIDs;
@@ -35,6 +35,12 @@ angular.module('lolApi').service('matchService', function ($q, $timeout, riotMat
 
     this.getTimelineDataFromUser = function (username) {
         var deferred = $q.defer();
+        summonerService.getMatches(username).then(function (matchIds) {
+            totalMatchIDs = matchIds;
+            getRandomMatch(totalMatchIDs).then(function (matchData) {
+                deferred.resolve(matchData);
+            });
+        });
         return deferred.promise;
     };
 });
