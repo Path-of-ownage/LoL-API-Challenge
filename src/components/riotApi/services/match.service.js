@@ -4,11 +4,11 @@ angular.module('lolApi').service('matchService', function ($q, $timeout, riotMat
 
     var totalMatchIDs;
 
-    function getRandomMatch(matchIDs) {
+    function getRandomMatch(matchIDs, region) {
         var deferred = $q.defer(),
             matchId = mathUtilService.getRandomObjectFromArray(matchIDs);
 
-        riotMatchService.getMatchData(matchId).then(function (matchData) {
+        riotMatchService.getMatchData(matchId, region).then(function (matchData) {
             deferred.resolve(matchData);
         });
         return deferred.promise;
@@ -33,11 +33,11 @@ angular.module('lolApi').service('matchService', function ($q, $timeout, riotMat
         return deferred.promise;
     };
 
-    this.getTimelineDataFromUser = function (username) {
+    this.getTimelineDataFromUser = function (username, region) {
         var deferred = $q.defer();
-        summonerService.getMatches(username).then(function (matchIds) {
+        summonerService.getMatches(username, region).then(function (matchIds) {
             totalMatchIDs = matchIds;
-            getRandomMatch(totalMatchIDs).then(function (matchData) {
+            getRandomMatch(totalMatchIDs, region).then(function (matchData) {
                 deferred.resolve(matchData);
             });
         });

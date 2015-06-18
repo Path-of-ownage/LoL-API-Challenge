@@ -23,9 +23,24 @@
                 <form ng-submit="getTimeline()">
                     <div class="input-group">
                         <input type="text" class="form-control" ng-model="usernameQuery" placeholder="League Username" required>
-                        <span class="input-group-btn"><button type="submit" class="btn btn-primary btn-height-fix" type="button">Fetch</button></span>
+                        <span class="input-group-btn"><button type="submit" class="btn btn-primary btn-height-fix" type="button">Fetch from {{ region.toUpperCase() }}</button></span>
                     </div>
                 </form>
+            </div>
+        </div>
+
+        <div class="row text-center form-group">
+            <div class="col-xs-12">
+                <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="region" btn-radio="'na'">NA</label>
+                    <label class="btn btn-primary" ng-model="region" btn-radio="'euw'">EUW</label>
+                    <label class="btn btn-primary" ng-model="region" btn-radio="'eune'">EUNE</label>
+                    <label class="btn btn-primary" ng-model="region" btn-radio="'br'">BR</label>
+                    <label class="btn btn-primary" ng-model="region" btn-radio="'tr'">TR</label>
+                    <label class="btn btn-primary" ng-model="region" btn-radio="'ru'">RU</label>
+                    <label class="btn btn-primary" ng-model="region" btn-radio="'lan'">LAN</label>
+                    <label class="btn btn-primary" ng-model="region" btn-radio="'oce'">OCE</label>
+                </div>
             </div>
         </div>
 

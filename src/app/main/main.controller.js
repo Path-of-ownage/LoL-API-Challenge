@@ -5,6 +5,7 @@ angular.module('lolApi').controller('MainCtrl', function ($scope, $modal, colour
     $scope.enviromentMix = 50;
     $scope.muted = false;
     $scope.events = [];
+    $scope.region = 'na';
 
     $scope.getColour = function (value) {
         if (!angular.isDefined(value)) {
@@ -63,9 +64,10 @@ angular.module('lolApi').controller('MainCtrl', function ($scope, $modal, colour
     };
 
     $scope.getTimeline = function () {
-        matchService.getTimelineDataFromUser($scope.usernameQuery).then(function (data) {
+        matchService.getTimelineDataFromUser($scope.usernameQuery, $scope.region).then(function (data) {
             $scope.events = eventSerializerService.getEvents(data);
             playerService.play($scope.events, $scope.enviromentMix);
+            $scope.usernameQuery = undefined;
         });
     };
 });
